@@ -1,4 +1,8 @@
-# Simple sass build
+# Starter templates
+
+A collection of simple starters templates.
+
+
 
 
 
