@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Exemple avec tous les tags HTML5</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <base href="https://exemple.com/">
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+      background: #f5f5f5;
+      color: #333;
+    }
+
+    header, footer, main, section, article, aside, nav {
+      padding: 20px;
+      margin: 10px;
+      background: #fff;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    header {
+      background-color: #007acc;
+      color: white;
+    }
+
+    footer {
+      background-color: #222;
+      color: #eee;
+      text-align: center;
+    }
+
+    nav ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    nav ul li {
+      display: inline;
+      margin-right: 15px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+    }
+
+    h1, h2, h3 {
+      margin-top: 0;
+    }
+
+    figure {
+      margin: 0;
+    }
+
+    figcaption {
+      font-style: italic;
+      text-align: center;
+    }
+
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      margin-top: 10px;
+    }
+
+    table, th, td {
+      border: 1px solid #ccc;
+      padding: 8px;
+    }
+
+    th {
+      background-color: #eee;
+    }
+
+    form label {
+      display: block;
+      margin-top: 10px;
+    }
+
+    input, select, textarea, button {
+      margin-top: 5px;
+      padding: 5px;
+      width: 100%;
+      max-width: 400px;
+    }
+
+    fieldset {
+      margin-top: 15px;
+      padding: 15px;
+    }
+
+    code, pre {
+      background: #f0f0f0;
+      padding: 5px;
+      display: block;
+      white-space: pre-wrap;
+    }
+
+    canvas {
+      border: 1px solid #000;
+      margin-top: 10px;
+    }
+
+    details {
+      margin-top: 10px;
+    }
+
+    dialog {
+      border: 2px solid #007acc;
+      padding: 10px;
+    }
+
+    .flex {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>En-tête principale</h1>
+    <nav>
+      <ul>
+        <li><a href="#">Accueil</a></li>
+        <li><a href="#">À propos</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <article>
+      <h2>Un article</h2>
+      <section>
+        <h3>Une section</h3>
+        <p>Ceci est un paragraphe avec un <mark>texte surligné</mark>, un <strong>texte important</strong>, et un <em>texte en italique</em>.</p>
+        <p>Texte avec <abbr title="HyperText Markup Language">HTML</abbr>, <code>&lt;div&gt;</code>, <kbd>Ctrl+C</kbd>, <samp>Exemple</samp>.</p>
+        <address>123 rue Exemple, Paris</address>
+        <time datetime="2025-09-20">20 septembre 2025</time>
+        <progress value="70" max="100">70%</progress>
+        <meter value="0.6">60%</meter>
+      </section>
+      <aside>
+        <p>Contenu secondaire (aside).</p>
+      </aside>
+    </article>
+
+    <section>
+      <h2>Éléments multimédia</h2>
+      <figure>
+        <img src="https://via.placeholder.com/300x150" alt="Une image" width="300">
+        <figcaption>Légende d'image</figcaption>
+      </figure>
+
+      <audio controls>
+        <source src="audio.mp3" type="audio/mpeg">
+        Votre navigateur ne supporte pas l'audio.
+      </audio>
+
+      <video controls width="300">
+        <source src="video.mp4" type="video/mp4">
+        Votre navigateur ne supporte pas la vidéo.
+      </video>
+
+      <canvas id="canvas" width="200" height="100">Votre navigateur ne supporte pas canvas.</canvas>
+
+      <svg width="100" height="100">
+        <circle cx="50" cy="50" r="40" stroke="green" stroke-width="4" fill="yellow" />
+      </svg>
+    </section>
+
+    <section>
+      <h2>Formulaires</h2>
+      <form action="#">
+        <fieldset>
+          <legend>Infos personnelles</legend>
+
+          <label for="name">Nom :</label>
+          <input type="text" id="name" name="name">
+
+          <label for="email">Email :</label>
+          <input type="email" id="email" name="email">
+
+          <label for="age">Âge :</label>
+          <input type="number" id="age" name="age">
+
+          <label for="color">Couleur préférée :</label>
+          <input type="color" id="color" name="color">
+
+          <label for="date">Date :</label>
+          <input type="date" id="date" name="date">
+
+          <label for="range">Niveau :</label>
+          <input type="range" id="range" name="range" min="0" max="10">
+
+          <label for="file">Fichier :</label>
+          <input type="file" id="file" name="file">
+
+          <label for="search">Recherche :</label>
+          <input type="search" id="search" name="search">
+
+          <label for="url">Site web :</label>
+          <input type="url" id="url" name="url">
+
+          <label for="tel">Téléphone :</label>
+          <input type="tel" id="tel" name="tel">
+
+          <label for="password">Mot de passe :</label>
+          <input type="password" id="password" name="password">
+
+          <label><input type="checkbox" name="subscribe"> S'abonner</label>
+          <label><input type="radio" name="gender" value="male"> Homme</label>
+          <label><input type="radio" name="gender" value="female"> Femme</label>
+
+          <label for="select">Choix :</label>
+          <select id="select" name="select">
+            <option value="1">Option 1</option>
+            <option value="2">Option 2</option>
+          </select>
+
+          <label for="textarea">Commentaire :</label>
+          <textarea id="textarea" name="textarea" rows="4" cols="30"></textarea>
+
+          <button type="submit">Envoyer</button>
+          <input type="submit" value="Envoyer (input)">
+          <input type="reset" value="Réinitialiser">
+        </fieldset>
+      </form>
+    </section>
+
+    <section>
+      <h2>Éléments de tableau</h2>
+      <table>
+        <caption>Exemple de tableau</caption>
+        <thead>
+          <tr><th>Nom</th><th>Âge</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Jean</td><td>30</td></tr>
+          <tr><td>Marie</td><td>25</td></tr>
+        </tbody>
+        <tfoot>
+          <tr><td colspan="2">Fin du tableau</td></tr>
+        </tfoot>
+      </table>
+    </section>
+
+    <section>
+      <h2>Texte divers</h2>
+      <p><b>Texte gras (b)</b>, <i>italique (i)</i>, <u>souligné</u>, <small>petit</small>, <sub>indice</sub>, <sup>exposant</sup>, <del>barré</del>, <ins>inséré</ins>.</p>
+      <blockquote cite="https://exemple.com">Ceci est une citation.</blockquote>
+      <q cite="https://exemple.com">Citation courte</q>
+      <pre>
+function test() {
+  return true;
+}
+      </pre>
+      <details>
+        <summary>Voir plus</summary>
+        <p>Contenu caché au départ.</p>
+      </details>
+      <dialog open>Boîte de dialogue</dialog>
+      <p><dfn>Tactilité</dfn> est la qualité de ce qui est tactile.</p>
+      <bdo dir="rtl">Texte inversé</bdo>
+      <hr>
+      <wbr>Ce<wbr>texte<wbr>coupé
+    </section>
+  </main>
+
+  <footer>
+      <p>&copy; 2025 Mon site</p>
+  </footer>
+
+  </body>
+</html>
