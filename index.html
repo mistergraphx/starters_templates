@@ -2,160 +2,172 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <title>Exemple avec tous les tags HTML5</title>
+  <title>Example page with all HTML5 tags</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <base href="https://exemple.com/">
 
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      line-height: 1.6;
-      margin: 0;
-      padding: 0;
-      background: #f5f5f5;
-      color: #333;
-    }
+  <link rel="stylesheet" href="/base.css">
+  <link rel="stylesheet" href="/theme.css">
 
-    header, footer, main, section, article, aside, nav {
-      padding: 20px;
-      margin: 10px;
-      background: #fff;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-    }
+  <meta name="description" content="Provide a page with all HTML5 tags and landmark regions, with some accessibility recomandations">
+  <!-- Open-grap meta
 
-    header {
-      background-color: #007acc;
-      color: white;
-    }
+  <meta property="og:title" content="">
+  <meta property="og:type" content="">
+  <meta property="og:url" content="">
+  <meta property="og:image" content="">
+  <meta property="og:image:alt" content="">
+  -->
 
-    footer {
-      background-color: #222;
-      color: #eee;
-      text-align: center;
-    }
+  <!-- <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icon.png"> -->
 
-    nav ul {
-      list-style-type: none;
-      padding: 0;
-    }
-
-    nav ul li {
-      display: inline;
-      margin-right: 15px;
-    }
-
-    nav a {
-      color: white;
-      text-decoration: none;
-    }
-
-    h1, h2, h3 {
-      margin-top: 0;
-    }
-
-    figure {
-      margin: 0;
-    }
-
-    figcaption {
-      font-style: italic;
-      text-align: center;
-    }
-
-    table {
-      border-collapse: collapse;
-      width: 100%;
-      margin-top: 10px;
-    }
-
-    table, th, td {
-      border: 1px solid #ccc;
-      padding: 8px;
-    }
-
-    th {
-      background-color: #eee;
-    }
-
-    form label {
-      display: block;
-      margin-top: 10px;
-    }
-
-    input, select, textarea, button {
-      margin-top: 5px;
-      padding: 5px;
-      width: 100%;
-      max-width: 400px;
-    }
-
-    fieldset {
-      margin-top: 15px;
-      padding: 15px;
-    }
-
-    code, pre {
-      background: #f0f0f0;
-      padding: 5px;
-      display: block;
-      white-space: pre-wrap;
-    }
-
-    canvas {
-      border: 1px solid #000;
-      margin-top: 10px;
-    }
-
-    details {
-      margin-top: 10px;
-    }
-
-    dialog {
-      border: 2px solid #007acc;
-      padding: 10px;
-    }
-
-    .flex {
-      display: flex;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
-  </style>
+  <!--  PWA
+  @see - https://developer.mozilla.org/fr/docs/Web/Progressive_web_apps/Manifest
+  <link rel="manifest" href="site.webmanifest">
+  <meta name="theme-color" content="#fafafa">
+  -->
 </head>
 <body>
+  <!-- Accessibility Guidelines
 
-  <header>
+  @see - https://webaim.org/
+
+  Compliance with european countries standars
+   French governement accessibility reference [fr]
+   https://accessibilite.numerique.gouv.fr/methode/criteres-et-tests/
+
+   Integration guide RGAA [fr]
+   https://disic.github.io/guide-integrateur/1-gabarit-general.html
+
+  -->
+  <!-- Header
+  we can use more than one header in the pages (in article or sections), we specify `role="banner"`
+  for the first level header only.
+
+  @see https://www.accede-web.com/en/guidelines/html-css/general-structure/add-structure-to-the-header-area-using-header-rolebanner/
+
+  -->
+  <header role="banner">
     <h1>En-tête principale</h1>
-    <nav>
-      <ul>
-        <li><a href="#">Accueil</a></li>
-        <li><a href="#">À propos</a></li>
+    <!-- Nav
+     role="navigation" must be use on each navigation tags (breadcrumbs, paginations, )
+    nav element is reserved for website’s internal links (this exclude external links like social networks).
+    to identify primary or secondary navigation use a aria-label
+
+    @see - https://www.accede-web.com/en/guidelines/html-css/general-structure/structure-primary-and-secondary-navigation-menus-with-nav-rolenavigation/
+    @see - https://www.w3.org/WAI/ARIA/apg/patterns/menubar/examples/menubar-navigation/
+    @see - https://www.w3.org/WAI/ARIA/apg/patterns/disclosure/examples/disclosure-navigation/
+    -->
+    <nav role="navigation" aria-label="Primary menu">
+      <ul role="menu">
+        <li role="none">
+          <a href="#" role="menuitem">Accueil</a>
+        </li>
+        <li role="none">
+          <a href="#" role="menuitem">À propos</a>
+        </li>
       </ul>
     </nav>
+    <!-- Search
+
+    role="search" must be unique in page
+    -->
+    <form action="POST" role="search">
+      <label for="site_search">Search</label>
+      <!-- Note that title attribute is not read by screen reader if the label is present
+      The title attribute value for unlabeled form controls will be presented to screen reader users.
+      However, a properly associated text label provides better usability and accessibility
+      and should be used unless the purpose of the form control is intuitive without the label.
+      -->
+      <input type="search" id="site_search" name="site_search" autocomplete="off" title="Keyword Search">
+      <input type="submit" value="Search">
+    </form>
   </header>
 
-  <main>
+  <main role="main">
     <article>
-      <h2>Un article</h2>
+      <header>
+        <h2>Un article</h2>
+      </header>
       <section>
-        <h3>Une section</h3>
+        <h3>Typography</h3>
+
         <p>Ceci est un paragraphe avec un <mark>texte surligné</mark>, un <strong>texte important</strong>, et un <em>texte en italique</em>.</p>
         <p>Texte avec <abbr title="HyperText Markup Language">HTML</abbr>, <code>&lt;div&gt;</code>, <kbd>Ctrl+C</kbd>, <samp>Exemple</samp>.</p>
         <address>123 rue Exemple, Paris</address>
         <time datetime="2025-09-20">20 septembre 2025</time>
+
         <progress value="70" max="100">70%</progress>
         <meter value="0.6">60%</meter>
+
+        <h2>Texte divers</h2>
+
+        <p><b>Texte gras (b)</b>, <i>italique (i)</i>, <u>souligné</u>, <small>petit</small>, <sub>indice</sub>, <sup>exposant</sup>, <del>barré</del>, <ins>inséré</ins>.</p>
+
+        <blockquote cite="https://exemple.com">Ceci est une citation.</blockquote>
+        <q cite="https://exemple.com">Citation courte</q>
+        <pre>
+function test() {
+  return true;
+}
+        </pre>
+
+        <p>
+          <dfn>Tactilité</dfn> est la qualité de ce qui est tactile.
+        </p>
+        <bdo dir="rtl">Texte inversé</bdo>
+        <hr>
+        <wbr>Ce<wbr>texte<wbr>coupé
+
+        <h3>Lists</h3>
+
+        <ul>
+          <li>list</li>
+          <li>list</li>
+          <li>list</li>
+        </ul>
+        <ol>
+          <li>Ordered list</li>
+          <li>Ordered list</li>
+          <li>Ordered list</li>
+        </ol>
+
+        <h3>Definitions lists</h3>
+
+        <dl>
+          <dt>Term</dt>
+          <dd>Term definition</dd>
+          <dt>Term</dt>
+          <dd>Term definition</dd>
+        </dl>
       </section>
+
       <aside>
-        <p>Contenu secondaire (aside).</p>
+        <p>Secondary content (aside).</p>
+        <nav role="navigation" aria-label="Article related links">
+          <ul>
+            <li><a href="#">Link</a></li>
+            <li><a href="#">Link</a></li>
+            <li><a href="#">Link</a></li>
+            <li><a href="#">Link</a></li>
+          </ul>
+        </nav>
       </aside>
     </article>
 
     <section>
+      <h2>Links</h2>
+      <a href="http://example.com">Link</a>
+      <a href="http://example.com" target="_blank">Link external</a>
+      <a href="mailto:never@stop.com">Email</a>
+      <a href="tel:+66666666">Phone Number</a>
+    </section>
+
+    <section>
       <h2>Éléments multimédia</h2>
       <figure>
-        <img src="https://via.placeholder.com/300x150" alt="Une image" width="300">
+        <img src="https://placehold.co/300x150" alt="Une image" width="300" height="150">
         <figcaption>Légende d'image</figcaption>
       </figure>
 
@@ -175,7 +187,12 @@
         <circle cx="50" cy="50" r="40" stroke="green" stroke-width="4" fill="yellow" />
       </svg>
     </section>
+    <!-- Forms
 
+     auto-complete : on off or a token value (https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Attributes/autocomplete#value)
+
+
+    -->
     <section>
       <h2>Formulaires</h2>
       <form action="#">
@@ -183,13 +200,16 @@
           <legend>Infos personnelles</legend>
 
           <label for="name">Nom :</label>
-          <input type="text" id="name" name="name">
+          <input type="text" id="name" name="name" autocomplete="family-name">
+
+          <label for="first-name">Prénom :</label>
+          <input type="text" id="first-name" name="first-name" autocomplete="given-name">
 
           <label for="email">Email :</label>
-          <input type="email" id="email" name="email">
+          <input type="email" id="email" name="email" autocomplete="email">
 
           <label for="age">Âge :</label>
-          <input type="number" id="age" name="age">
+          <input type="number" id="age" name="age" autocomplete="off">
 
           <label for="color">Couleur préférée :</label>
           <input type="color" id="color" name="color">
@@ -210,7 +230,7 @@
           <input type="url" id="url" name="url">
 
           <label for="tel">Téléphone :</label>
-          <input type="tel" id="tel" name="tel">
+          <input type="tel" id="tel" name="tel" autocomplete="tel">
 
           <label for="password">Mot de passe :</label>
           <input type="password" id="password" name="password">
@@ -253,28 +273,34 @@
     </section>
 
     <section>
-      <h2>Texte divers</h2>
-      <p><b>Texte gras (b)</b>, <i>italique (i)</i>, <u>souligné</u>, <small>petit</small>, <sub>indice</sub>, <sup>exposant</sup>, <del>barré</del>, <ins>inséré</ins>.</p>
-      <blockquote cite="https://exemple.com">Ceci est une citation.</blockquote>
-      <q cite="https://exemple.com">Citation courte</q>
-      <pre>
-function test() {
-  return true;
-}
-      </pre>
+
+
+      <h3>The detail element</h3>
+
       <details>
         <summary>Voir plus</summary>
         <p>Contenu caché au départ.</p>
       </details>
-      <dialog open>Boîte de dialogue</dialog>
-      <p><dfn>Tactilité</dfn> est la qualité de ce qui est tactile.</p>
-      <bdo dir="rtl">Texte inversé</bdo>
-      <hr>
-      <wbr>Ce<wbr>texte<wbr>coupé
+
+      <h3>The dialog element</h3>
+
+      <button type="button" onclick="let dialog = document.getElementById('dialog'); dialog.showModal()">
+        Show dialog
+      </button>
+
+      <dialog id="dialog" aria-labelledby="dialog-title" aria-describedby="dialog-description">
+        <h2 id="dialog-title">Action require</h2>
+        <p id="dialog-description">Sample desciption for the action</p>
+
+        <form method="dialog">
+          <button>OK</button>
+        </form>
+      </dialog>
+
     </section>
   </main>
 
-  <footer>
+  <footer role="contentinfo">
       <p>&copy; 2025 Mon site</p>
   </footer>
 

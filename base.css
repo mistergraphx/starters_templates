@@ -1,0 +1,319 @@
+/*
+
+
+@see - https://github.com/saltnpixels/crucial.css
+*/
+
+:root{
+  /* Describe available scheme */
+  color-scheme: light dark;
+  /* Fonts and fallbacks
+
+  @see - https://css-tricks.com/snippets/css/system-font-stack/
+  @see - https://modernfontstacks.com/  : System font stack CSS organized by typeface classification for every modern operating system
+   */
+  --font-system-ui: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+
+  --global-font-size: 62.5%;
+  --global-box-sizing: border-box;
+  --global-line-height: 1.5 ;
+  /* Base / body */
+  --base-font-family: var(--font-system-ui);
+	--base-font-size: 1.6rem;
+  --base-background: #f5f5f5;
+  --base-color: #333;
+}
+/* prefer-color-sheme: dark */
+@media screen and (prefers-color-scheme: dark){
+  :root{
+    --base-background: #333;
+    --base-color: #f5f5f5;
+  }
+}
+
+/* Minimal Reset
+@see - https://meyerweb.com/eric/tools/css/reset/
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+/**
+  1. Set the font size to base of 10. 1.6rem = 16px. No more math needed.
+  2. Set Box sizing default to border-box
+  3. Set line height to  `--global-line-height` which works nicely with most font sizes
+  4. Prevent adjustments of font size after orientation changes in iOS.
+  5. Prevent overflow x and polyfill for broser that don't support clip (safari < 16)
+*/
+html{
+  font-size: var(--global-font-size); /* 1 */
+  box-sizing: var(--global-box-sizing); /* 2 */
+  line-height: var(--global-line-height); /* 3 */
+
+  -webkit-text-size-adjust: 100%; /* 4 */
+  text-size-adjust: 100%; /* 4 */
+  overflow-x: hidden; /* 5 */
+  overflow-x: clip;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  font-family: var(--base-font-family) ;
+  font-size:  var(--base-font-size);
+  line-height: var(--base-line-height);
+  background: var(--base-background);
+  color: var(--base-color) ;
+
+  min-height: calc(var(--1lvh, 1vh) * 100); /* This is the "polyfill" for browsers that don't support `dvh` units */
+  min-height: 100dvh; /* This is for future browsers that support svh, dvh and lvh viewport units */
+}
+
+/* Typography */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {}
+
+p{}
+
+strong,b{
+  font-weight: bold;
+}
+
+em,i{
+  font-style: italic;
+}
+
+/**
+Add the correct font size in all browsers.
+*/
+small {
+  font-size: 80%;
+}
+
+/**
+Prevent 'sub' and 'sup' elements from affecting the line height in all browsers.
+*/
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+sup {
+  top: -0.5em;
+}
+
+blockquote, q {
+	quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+
+/**
+1. Add the correct height in Firefox.
+2. Correct the inheritance of border color in Firefox. (https://bugzilla.mozilla.org/show_bug.cgi?id=190655)
+*/
+hr {
+  height: 0; /* 1 */
+  color: inherit; /* 2 */
+}
+
+/* Pre-formated blocks */
+pre,
+code,
+kbd,
+samp {
+  font-family: monospace, monospace; /* Correct the inheritance and scaling of font size in all browsers. */
+  font-size: 1em; /* Correct the odd `em` font sizing in all browsers. */
+}
+code,
+pre {
+  /* background: #333; */
+  padding: 5px;
+  display: block;
+  white-space: pre-wrap;
+}
+
+pre {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  overflow: auto;
+  -ms-overflow-style: scrollbar;
+}
+
+kbd{
+	padding: 0.15em 0.25em;
+  background-color: #f0f8ff;
+  color: #000000;
+  border-radius: .2em;
+	border: 1px solid black;
+}
+
+/* links / selections */
+a{}
+a:hover{}
+a:focus{}
+a:visited{}
+
+a[target="_blank"]:before{
+  content: "\0000a0\279A";
+}
+a[href^="mailto"]:before {
+  content: "\0000a0\2709";
+}
+a[href^="tel"]:before{
+  content: "\0000a0\2706";
+}
+
+::selection {
+  background: yellow;
+  color: black;
+}
+
+/* Lists */
+
+ul,
+ol{
+	list-style-position: inside
+}
+
+/* Tables */
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  margin-top: 10px;
+}
+
+table,
+th,
+td {
+    border: 1px solid #ccc;
+    padding: 8px;
+}
+
+th {
+    background-color: #eee;
+	color: #000;
+}
+
+
+/* Forms */
+label {
+  display: block;
+  margin-top: 10px;
+}
+
+input,
+select,
+textarea,
+button {
+    margin-top: 5px;
+    padding: 5px;
+    width: 100%;
+    /* max-width: 400px; */
+}
+
+label input[type=checkbox],
+label input[type=radio]{
+	float: left;
+	width: auto;
+}
+
+textarea{
+
+}
+
+fieldset {
+  margin-top: 15px;
+  padding: 15px;
+}
+
+/* Medias */
+
+figure {
+  display: table;
+}
+
+figcaption {
+	caption-side: bottom;
+
+	font-style: italic;
+	text-align: center;
+}
+
+audio{}
+
+video{}
+
+canvas {
+  border: 1px solid #000;
+  margin-top: 10px;
+}
+
+/* HTML details
+
+*/
+details {
+  margin-top: 10px;
+}
+/* HTML dialog element
+
+A dialog element can be modal (open via js API) or static (with the `open` html attibute)
+
+- ::backdrop is only shown when dialog is open via th js API dialog.showModal()
+- a dialog open with the js API has a `:modal` pseudo element
+
+
+*/
+dialog{
+  --dialog-border: 2px solid #007acc;
+  --dialog-padding: 10px;
+  --dialog-backdrop: rgba(48, 44, 44, 0.25);
+  border: var(--dialog-border);
+  padding: var(--dialog-padding);
+}
+
+dialog:modal:open{
+  --dialog-border: 1px solid red;
+}
+
+dialog::backdrop{
+  background:var(--dialog-backdrop);
+}
+
+
