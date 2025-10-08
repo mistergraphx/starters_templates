@@ -5,8 +5,8 @@
   <title>Example page with all HTML5 tags</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link rel="stylesheet" href="/base.css">
-  <link rel="stylesheet" href="/theme.css">
+  <link rel="stylesheet" href="/base.css" media="screen">
+  <link rel="stylesheet" href="/theme.css" media="screen">
 
   <meta name="description" content="Provide a page with all HTML5 tags and landmark regions, with some accessibility recomandations">
   <!-- Open-grap meta
@@ -86,6 +86,9 @@
   </header>
 
   <main role="main">
+    <!-- Basic styleguide with all html tags used in user contents (markdown, CMS editors)
+    @see - https://www.bryanbraun.com/poor-mans-styleguide/
+    -->
     <article>
       <header>
         <h2>Un article</h2>
@@ -112,11 +115,13 @@ function test() {
   return true;
 }
         </pre>
-
+        <output>This is a output tag </output>
         <p>
           <dfn>Tactilité</dfn> est la qualité de ce qui est tactile.
         </p>
-        <bdo dir="rtl">Texte inversé</bdo>
+        <p>this is a `bdo` tag :
+          <bdo dir="rtl">Texte inversé</bdo>
+        </p>
         <hr>
         <wbr>Ce<wbr>texte<wbr>coupé
 
@@ -144,7 +149,7 @@ function test() {
       </section>
 
       <aside>
-        <p>Secondary content (aside).</p>
+        <p>Secondary content (aside) in an article.</p>
         <nav role="navigation" aria-label="Article related links">
           <ul>
             <li><a href="#">Link</a></li>
@@ -260,11 +265,12 @@ function test() {
       <table>
         <caption>Exemple de tableau</caption>
         <thead>
-          <tr><th>Nom</th><th>Âge</th></tr>
+          <tr><th>Name</th><th>Age</th></tr>
         </thead>
         <tbody>
           <tr><td>Jean</td><td>30</td></tr>
           <tr><td>Marie</td><td>25</td></tr>
+          <tr><td colspan="2">One cell of 2 cols</td></tr>
         </tbody>
         <tfoot>
           <tr><td colspan="2">Fin du tableau</td></tr>
