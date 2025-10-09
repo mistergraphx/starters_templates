@@ -3,6 +3,7 @@
 
 @see - https://github.com/saltnpixels/crucial.css
 @see - https://github.com/sindresorhus/modern-normalize
+@see - https://github.com/h5bp/html5-boilerplate/blob/main/dist/css/style.css
 */
 
 :root{
@@ -23,6 +24,7 @@
 	--base-font-size: 1.6rem;
   --base-background: #f5f5f5;
   --base-color: #333;
+  --base-selection-bg: yellow;
 }
 /* prefer-color-sheme: dark */
 @media screen and (prefers-color-scheme: dark){
@@ -202,9 +204,14 @@ a[href^="tel"]:before{
   content: "\0000a0\2706";
 }
 
-::selection {
-  background: yellow;
+/*
+1 - Remove text-shadow in selection highlight (https://twitter.com/miketaylr/status/12228805301)
+*/
+::selection,
+::-moz-selection {
+  background: var(--base-selection-bg);
   color: black;
+  text-shadow: none; /* 1 */
 }
 
 /* Lists */
@@ -226,12 +233,12 @@ table {
 table,
 th,
 td {
-    border: 1px solid #ccc;
-    padding: 8px;
+  border: 1px solid #ccc;
+  padding: 8px;
 }
 
 th {
-    background-color: #eee;
+  background-color: #eee;
 	color: #000;
 }
 
@@ -246,10 +253,10 @@ input,
 select,
 textarea,
 button {
-    margin-top: 5px;
-    padding: 5px;
-    width: 100%;
-    /* max-width: 400px; */
+  margin-top: 5px;
+  padding: 5px;
+  width: 100%;
+  /* max-width: 400px; */
 }
 
 label input[type=checkbox],
@@ -257,9 +264,11 @@ label input[type=radio]{
 	float: left;
 	width: auto;
 }
-
+/*
+ * Allow only vertical resizing of textareas.
+ */
 textarea{
-
+  resize: vertical;
 }
 
 fieldset {
@@ -268,6 +277,20 @@ fieldset {
 }
 
 /* Medias */
+
+/*
+ * Remove the gap between audio, canvas, iframes,
+ * images, videos and the bottom of their containers:
+ * https://github.com/h5bp/html5-boilerplate/issues/440
+ */
+audio,
+canvas,
+iframe,
+img,
+svg,
+video {
+  vertical-align: middle;
+}
 
 figure {
   display: table;
