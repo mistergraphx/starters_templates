@@ -1,14 +1,21 @@
-/*
+/* A base starter for setting browsers default styles
+ inspirated by https://frontendmasters.com/blog/the-coyier-css-starter/
+ and https://piccalil.li/links/the-coyier-css-starter/
 
 
 @see - https://github.com/saltnpixels/crucial.css
 @see - https://github.com/sindresorhus/modern-normalize
 @see - https://github.com/h5bp/html5-boilerplate/blob/main/dist/css/style.css
+
 */
 
 :root{
-  /* Describe available scheme */
-  color-scheme: light dark;
+  /* Custom properties naming conventions
+  @see - https://open-props.style/
+
+  System colors and CSS keywords
+  @see -  https://projects.dutchcelt.com/system.css/index.html
+  */
   /* Fonts and fallbacks
 
   @see - https://css-tricks.com/snippets/css/system-font-stack/
@@ -25,13 +32,6 @@
   --base-background: #f5f5f5;
   --base-color: #333;
   --base-selection-bg: yellow;
-}
-/* prefer-color-sheme: dark */
-@media screen and (prefers-color-scheme: dark){
-  :root{
-    --base-background: #333;
-    --base-color: #f5f5f5;
-  }
 }
 
 /* Minimal Reset
@@ -62,18 +62,21 @@ time, mark, audio, video {
   1. Set the font size to base of 10. 1.6rem = 16px. No more math needed.
   2. Set Box sizing default to border-box
   3. Set line height to  `--global-line-height` which works nicely with most font sizes
-  4. Prevent adjustments of font size after orientation changes in iOS.
-  5. Prevent overflow x and polyfill for broser that don't support clip (safari < 16)
+  4. Prevent adjustments of font size after orientation changes in iOS (https://kilianvalkhof.com/2022/css-html/your-css-reset-needs-text-size-adjust-probably/).
+  5. Prevent overflow x and polyfill for browsers that don't support clip (safari < 16)
 */
 html{
   font-size: var(--global-font-size); /* 1 */
   box-sizing: var(--global-box-sizing); /* 2 */
   line-height: var(--global-line-height); /* 3 */
 
+  hanging-punctuation: first allow-end last; /* Only Safari */
+  word-break: break-word;
+
   -webkit-text-size-adjust: 100%; /* 4 */
   text-size-adjust: 100%; /* 4 */
   overflow-x: hidden; /* 5 */
-  overflow-x: clip;
+  overflow-x: clip; /* 5 */
 }
 
 *, *:before, *:after {
@@ -87,8 +90,14 @@ body {
   background: var(--base-background);
   color: var(--base-color) ;
 
-  min-height: calc(var(--1lvh, 1vh) * 100); /* This is the "polyfill" for browsers that don't support `dvh` units */
-  min-height: 100dvh; /* This is for future browsers that support svh, dvh and lvh viewport units */
+  min-height: 100vh; /* Good browser support */
+  /* Future proof : Be aware of some performance issues with dvh unit
+  @see - https://ishadeed.com/article/new-viewport-units/#:~:text=Be%20careful%20with%20the%20dvh,is%20scrolling%20up%20or%20down.
+  Alternaly you can add the micropolyfill and test dvh if it's ok in your project
+
+  min-height: calc(var(--1lvh, 1vh) * 100);
+  min-height: 100dvh;
+  */
 }
 
 /* Typography */
@@ -97,7 +106,9 @@ h2,
 h3,
 h4,
 h5,
-h6 {}
+h6 {
+  text-wrap: balance;
+}
 
 p{}
 
@@ -146,8 +157,8 @@ q:before, q:after {
 }
 
 /**
-To verify (https://github.com/sindresorhus/modern-normalize/pull/75)
-this semms to be outdated with latest browsers versions
+@todo - verify (https://github.com/sindresorhus/modern-normalize/pull/75)
+this seems to be outdated with latest browsers versions
 
 1. Add the correct height in Firefox.
 2. Correct the inheritance of border color in Firefox. (https://bugzilla.mozilla.org/show_bug.cgi?id=190655)
@@ -214,7 +225,11 @@ a[href^="tel"]:before{
   text-shadow: none; /* 1 */
 }
 
-/* Lists */
+/* Lists
+Be aware that while removing list styles (list-style-type="none") that voice over remove semantics role="list"
+
+@see - https://bugs.webkit.org/show_bug.cgi?id=170179
+*/
 
 ul,
 ol{
