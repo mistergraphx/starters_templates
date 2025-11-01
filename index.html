@@ -1,6 +1,9 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html class="no-js" lang="fr">
 <head>
+  <!-- detect if javascript is enable -->
+  <script type='text/javascript'>/*<![CDATA[*/(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement);/*]]>*/</script>
+
   <meta charset="UTF-8">
   <title>Example page with all HTML5 tags</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -252,6 +255,8 @@ function test() {
 
           <label for="textarea">Commentaire :</label>
           <textarea id="textarea" name="textarea" rows="4" cols="30"></textarea>
+          <!-- https://rud.is/drop/output.html -->
+          <output name="charCount" for="textarea"></output>
 
           <button type="submit">Envoyer</button>
           <input type="submit" value="Envoyer (input)">
