@@ -1,9 +1,28 @@
 <!DOCTYPE html>
 <html class="no-js" lang="fr">
 <head>
-  <!-- detect if javascript is enable -->
+  <!-- detect if javascript is enable snippets :
+  https://dbushell.com/2024/06/22/no-no-javascript/
+  and https://www.paulirish.com/2009/avoiding-the-fouc-v3/
+
+  Older version with a IE9 compatibility
   <script type='text/javascript'>/*<![CDATA[*/(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement);/*]]>*/</script>
 
+  Modern version since IE10
+  <script>document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/,'js');</script>
+
+  A modern css solution preposed by D. Bushell
+  ````
+  @media (scripting: none) {
+    .my-component {
+      /* no JavaScript */
+    }
+  }
+  ```
+
+
+  -->
+  <script>(function(H,C){H[C]=H[C].replace(/\bno-js\b/,'js')})(document.documentElement,'className');</script>
   <meta charset="UTF-8">
   <title>Example page with all HTML5 tags</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -100,7 +119,7 @@
         <h3>Typography</h3>
 
         <p>Ceci est un paragraphe avec un <mark>texte surligné</mark>, un <strong>texte important</strong>, et un <em>texte en italique</em>.</p>
-        <p>Texte avec <abbr title="HyperText Markup Language">HTML</abbr>, <code>&lt;div&gt;</code>, <kbd>Ctrl+C</kbd>, <samp>Exemple</samp>.</p>
+        <p>Texte avec <abbr title="HyperText Markup Language">HTML</abbr>, un extrait de code <code>&lt;div&gt;</code>, <kbd>Ctrl+C</kbd>, <samp>Exemple</samp>.</p>
         <address>123 rue Exemple, Paris</address>
         <time datetime="2025-09-20">20 septembre 2025</time>
 
