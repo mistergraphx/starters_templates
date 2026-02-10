@@ -23,7 +23,12 @@ Others reset or starters:
   @see - https://modernfontstacks.com/  : System font stack CSS organized by typeface classification for every modern operating system
    */
   --font-system-ui: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-
+  /* User font-size can be scale up to 200% in the aria criterias
+  sizing the font tho 62.5% is useful to simply convert px to rem
+  but can break this accessibility rule.
+  @see - https://www.w3.org/WAI/WCAG22/Understanding/resize-text
+  @see - https://www.oddbird.net/2025/07/22/size-preferences/
+  */
   --global-font-size: 62.5%;
   --global-box-sizing: border-box;
   --global-line-height: 1.5 ;
@@ -64,6 +69,7 @@ time, mark, audio, video {
 /**
   1. Set the font size to base of 10. 1.6rem = 16px. No more math needed.
   2. Set Box sizing default to border-box
+
   3. Set line height to  `--global-line-height` which works nicely with most font sizes
   4. Prevent adjustments of font size after orientation changes in iOS (https://kilianvalkhof.com/2022/css-html/your-css-reset-needs-text-size-adjust-probably/).
   5. Prevent overflow x and polyfill for browsers that don't support clip (safari < 16)
@@ -81,7 +87,10 @@ html{
   overflow-x: hidden; /* 5 */
   overflow-x: clip; /* 5 */
 }
-
+/* Opinionated: as explain is this article box-sizing (or any layout properties) must not be
+inherited, due to the cascade and imbrication of components
+https://www.oddbird.net/2025/09/04/box-model/
+*/
 *, *:before, *:after {
   box-sizing: inherit;
 }
