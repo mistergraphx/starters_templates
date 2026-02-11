@@ -9,7 +9,6 @@ Others reset or starters:
 @see - https://github.com/h5bp/html5-boilerplate/blob/main/dist/css/style.css
 
 */
-
 :root{
   /* Custom properties naming conventions
   @see - https://open-props.style/
@@ -34,12 +33,10 @@ Others reset or starters:
   --global-line-height: 1.5 ;
   /* Base / body */
   --base-font-family: var(--font-system-ui);
-	--base-font-size: 1.6rem;
+	--base-font-size: 1rem;
   --base-background: #f5f5f5;
   --base-color: #333;
   --base-selection-bg: yellow;
-  /* Tokens */
-  --radius-1: 5px;
 }
 
 /* Minimal Reset
@@ -71,7 +68,7 @@ time, mark, audio, video {
   2. Set Box sizing default to border-box
 
   3. Set line height to  `--global-line-height` which works nicely with most font sizes
-  4. Prevent adjustments of font size after orientation changes in iOS (https://kilianvalkhof.com/2022/css-html/your-css-reset-needs-text-size-adjust-probably/).
+  4. Prevent adjustments of font size in mobile browsers (safari/ff) after orientation changes in iOS (https://kilianvalkhof.com/2022/css-html/your-css-reset-needs-text-size-adjust-probably/).
   5. Prevent overflow x and polyfill for browsers that don't support clip (safari < 16)
 */
 html{
@@ -82,8 +79,10 @@ html{
   hanging-punctuation: first allow-end last; /* Only Safari */
   word-break: break-word;
 
+  -moz-text-size-adjust: 100%; /* 4 */
   -webkit-text-size-adjust: 100%; /* 4 */
   text-size-adjust: 100%; /* 4 */
+
   overflow-x: hidden; /* 5 */
   overflow-x: clip; /* 5 */
 }
@@ -96,12 +95,11 @@ https://www.oddbird.net/2025/09/04/box-model/
 }
 
 body {
-  font-family: var(--base-font-family) ;
+  font-family: var(--base-font-family);
   font-size:  var(--base-font-size);
   line-height: var(--base-line-height);
   background: var(--base-background);
-  color: var(--base-color) ;
-
+  color: var(--base-color);
   min-height: 100vh; /* Good browser support */
   /* Future proof : Be aware of some performance issues with dvh unit
   @see - https://ishadeed.com/article/new-viewport-units/#:~:text=Be%20careful%20with%20the%20dvh,is%20scrolling%20up%20or%20down.
@@ -122,7 +120,9 @@ h6 {
   text-wrap: balance;
 }
 
-p{}
+/* p{
+
+} */
 
 strong,b{
   font-weight: bold;
@@ -211,7 +211,7 @@ kbd{
 	border: 1px solid black;
 }
 
-/* links / selections */
+/* links / selections
 a{}
 a:hover{}
 a:focus{}
@@ -226,11 +226,15 @@ a[href^="mailto"]:before {
 a[href^="tel"]:before{
   content: "\0000a0\2706";
 }
-
+*/
 /*
 1 - Remove text-shadow in selection highlight (https://twitter.com/miketaylr/status/12228805301)
 */
-::selection,
+::selection{
+  background: var(--base-selection-bg);
+  color: black;
+  text-shadow: none; /* 1 */
+}
 ::-moz-selection {
   background: var(--base-selection-bg);
   color: black;
@@ -254,44 +258,42 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
   width: 100%;
-  margin-top: 10px;
+  /* margin-top: 10px; */
 }
 
+/*
 table,
 th,
 td {
-  border: 1px solid #ccc;
+  border: 1px solid var(--base-border-color);
   padding: 8px;
 }
 
 th {
   background-color: #eee;
 	color: #000;
-}
+} */
 
 
 /* Forms */
 label {
   display: block;
-  margin-top: 10px;
 }
 
-input,
+/* input,
 select,
 textarea,
 button {
   margin-top: 5px;
   padding: 5px;
   border-radius: var(--radius-1, 0);
-  /* width: 100%; */
-  /* max-width: 400px; */
 }
 
 label input[type=checkbox],
 label input[type=radio]{
 	float: left;
 	width: auto;
-}
+} */
 
 /*
  * Allow only vertical resizing of textareas.
@@ -300,10 +302,10 @@ textarea{
   resize: vertical;
 }
 
-fieldset {
+/* fieldset {
   margin-top: 15px;
   padding: 15px;
-}
+} */
 
 /* Medias */
 
@@ -332,6 +334,8 @@ figcaption {
 	text-align: center;
 }
 
+/* medias
+
 audio{}
 
 video{}
@@ -340,13 +344,13 @@ canvas {
   border: 1px solid #000;
   margin-top: 10px;
 }
-
+*/
 /* HTML details
 
 */
-details {
+/* details {
   margin-top: 10px;
-}
+} */
 /* HTML dialog element
 
 A dialog element can be modal (open via js API) or static (with the `open` html attibute)
@@ -356,7 +360,7 @@ A dialog element can be modal (open via js API) or static (with the `open` html 
 
 
 */
-dialog{
+/* dialog{
   --dialog-border: 2px solid #007acc;
   --dialog-padding: 10px;
   --dialog-backdrop: rgba(48, 44, 44, 0.25);
@@ -370,10 +374,21 @@ dialog:modal:open{
 
 dialog::backdrop{
   background:var(--dialog-backdrop);
-}
+} */
 
 
 /*  Utilities
 
 @see https://www.scottohara.me/blog/2017/04/14/inclusively-hidden.html#hiding-content-visually
+@see https://www.a11y-collective.com/blog/visually-hidden/
 */
+.visually-hidden {
+  border: 0;
+  clip-path: inset(50%);
+  height: 1px;
+  margin: 0;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
