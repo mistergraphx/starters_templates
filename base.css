@@ -7,6 +7,7 @@ Others reset or starters:
 @see - https://github.com/saltnpixels/crucial.css
 @see - https://github.com/sindresorhus/modern-normalize
 @see - https://github.com/h5bp/html5-boilerplate/blob/main/dist/css/style.css
+@see - https://elad2412.github.io/the-new-css-reset/
 
 */
 :root{
@@ -212,10 +213,13 @@ kbd{
 }
 
 /* links / selections
+
 a{}
 a:hover{}
 a:focus{}
 a:visited{}
+keyboard only focus styles
+a:focus-visible { }
 
 a[target="_blank"]:before{
   content: "\0000a0\279A";
