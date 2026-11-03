@@ -80,14 +80,18 @@
     @see - https://www.accede-web.com/en/guidelines/html-css/general-structure/structure-primary-and-secondary-navigation-menus-with-nav-rolenavigation/
     @see - https://www.w3.org/WAI/ARIA/apg/patterns/menubar/examples/menubar-navigation/
     @see - https://www.w3.org/WAI/ARIA/apg/patterns/disclosure/examples/disclosure-navigation/
+
+    Do not use role="menu" / "menuitem" for site navigation: it is the ARIA pattern for
+    application menus (arrow-key navigation expected by screen readers).
+    A plain list of links is enough; for submenus, use the disclosure pattern.
     -->
     <nav role="navigation" aria-label="Primary menu">
-      <ul role="menu">
-        <li role="none">
-          <a href="#" role="menuitem">Accueil</a>
+      <ul>
+        <li>
+          <a href="#">Accueil</a>
         </li>
-        <li role="none">
-          <a href="#" role="menuitem">À propos</a>
+        <li>
+          <a href="#">À propos</a>
         </li>
       </ul>
     </nav>
@@ -95,7 +99,7 @@
 
     role="search" must be unique in page
     -->
-    <form action="POST" role="search">
+    <form action="#" method="get" role="search">
       <label for="site_search">Search</label>
       <!-- Note that title attribute is not read by screen reader if the label is present
       The title attribute value for unlabeled form controls will be presented to screen reader users.
