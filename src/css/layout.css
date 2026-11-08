@@ -1,0 +1,22 @@
+/* Layout: structure only, no colours, borders or fonts.
+   Demo page scaffolding: keep it minimal so it stays easy to override. */
+
+main {
+  margin: 0 auto;
+  padding: 20px;
+  max-width: 600px;
+}
+
+section {
+  margin-block: 1.2rem;
+}
+
+nav ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+nav ul li {
+  display: inline;
+  margin-right: 15px;
+}

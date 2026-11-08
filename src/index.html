@@ -27,8 +27,8 @@
   <title>Example page with all HTML5 tags</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link rel="stylesheet" href="/base.css" media="screen">
-  <link rel="stylesheet" href="/theme.css" media="screen">
+  <link rel="stylesheet" href="css/styles.css" media="screen">
+  <link rel="stylesheet" href="css/print.css" media="print">
 
   <meta name="description" content="Provide a page with all HTML5 tags and landmark regions, with some accessibility recomandations">
   <!-- Open-grap meta
@@ -51,6 +51,11 @@
   -->
 </head>
 <body>
+  <!-- Skip link: hidden until focused, first focusable element of the page
+  @see https://webaim.org/techniques/skipnav/
+  -->
+  <a href="#main" class="visually-hidden-focusable">Aller au contenu principal</a>
+
   <!-- Accessibility Guidelines
 
   @see - https://webaim.org/
@@ -111,7 +116,7 @@
     </form>
   </header>
 
-  <main role="main">
+  <main id="main" role="main" tabindex="-1">
     <!-- Basic styleguide with all html tags used in user contents (markdown, CMS editors)
     @see - https://www.bryanbraun.com/poor-mans-styleguide/
     -->
@@ -192,6 +197,7 @@ function test() {
       <a href="http://example.com">Link</a>
       <a href="http://example.com" target="_blank">Link external</a>
       <a href="mailto:never@stop.com">Email</a>
+      <a href="#" class="button">Bouton</a>
       <a href="tel:+66666666">Phone Number</a>
     </section>
 

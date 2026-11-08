@@ -3,5 +3,17 @@
   "version": "1.0.0",
   "description": "A collection of quick starter templates",
   "author": "Arnaud B.",
-  "license": "ISC"
+  "license": "ISC",
+  "type": "module",
+  "scripts": {
+    "build:css": "NODE_ENV=production postcss src/css/styles.css src/css/print.css -d dist/css",
+    "build": "npm run build:css && cp src/index.html src/robots.txt dist/"
+  },
+  "devDependencies": {
+    "postcss": "^8.5.32",
+    "postcss-cli": "^12.0.0",
+    "postcss-csso": "^6.0.1",
+    "postcss-import": "^17.0.1",
+    "postcss-preset-env": "^11.6.2"
+  }
 }

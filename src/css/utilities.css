@@ -1,0 +1,30 @@
+/*  Utilities
+
+@see https://www.scottohara.me/blog/2017/04/14/inclusively-hidden.html#hiding-content-visually
+@see https://www.a11y-collective.com/blog/visually-hidden/
+*/
+.visually-hidden {
+  border: 0;
+  clip-path: inset(50%);
+  height: 1px;
+  margin: 0;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+/* Hidden until it receives focus, e.g. a skip link.
+   Keeps the element reachable by keyboard, and visible when focused.
+   Not the same as :focus-visible: it reveals the element on focus, whatever the input method.
+@see https://www.scottohara.me/blog/2017/04/14/inclusively-hidden.html
+*/
+.visually-hidden-focusable:not(:focus):not(:active) {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
