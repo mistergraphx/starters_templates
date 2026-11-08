@@ -19,6 +19,7 @@ A collection of simple starter templates.
 ## Conventions
 
 - `base` holds element rules only. Every value you may want to change lives in `tokens.css`.
+- Custom properties are named category first, then role, in kebab-case (`--color-text`, `--font-size-base`). The names follow the path structure of a [Design Tokens Format Module](https://www.designtokens.org/TR/third-editors-draft/format/) file. The spec does not impose naming, so this is a choice: it keeps the names ready if you later generate them from a shared token file.
 - `components/`: one file per block, named after it. Modifiers and elements of the block stay in the same file. No catch-all files.
 - Keep the order of the `@layer` list in `styles.css`. Later layers win.
 
