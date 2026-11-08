@@ -15,6 +15,12 @@ A collection of simple starter templates.
     - `src/css/print.css` : print stylesheet, loaded separately with `media="print"` so it does not weigh on the main sheet.
 - `postcss.config.js` : production pipeline (inline imports, cascade layers fallback, minification).
 
+## Deployment
+
+`.github/workflows/pages.yml` builds the starter on every pull request, and publishes `dist/` to GitHub Pages on every push to `master`.
+
+One-time setup in the repository settings: Settings → Pages → Build and deployment → Source: **GitHub Actions**.
+
 ## Usage
 
 Open `src/index.html` directly, or serve the folder. In development, `src/css/styles.css` is loaded as-is and the browser handles `@layer`.
