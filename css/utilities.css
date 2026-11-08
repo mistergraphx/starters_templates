@@ -14,10 +14,12 @@
   width: 1px;
 }
 
-/* Another version using not
-@see - https://www.scottohara.me/blog/2017/04/14/inclusively-hidden.html
-
-.visually-hidden:not(:focus):not(:active) {
+/* Hidden until it receives focus, e.g. a skip link.
+   Keeps the element reachable by keyboard, and visible when focused.
+   Not the same as :focus-visible: it reveals the element on focus, whatever the input method.
+@see https://www.scottohara.me/blog/2017/04/14/inclusively-hidden.html
+*/
+.visually-hidden-focusable:not(:focus):not(:active) {
   clip: rect(0 0 0 0);
   clip-path: inset(50%);
   height: 1px;
@@ -25,4 +27,4 @@
   position: absolute;
   white-space: nowrap;
   width: 1px;
-} */
+}
