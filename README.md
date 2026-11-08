@@ -28,6 +28,13 @@ A collection of simple starter templates.
 
 One-time setup in the repository settings: Settings → Pages → Build and deployment → Source: **GitHub Actions**.
 
+## Copy-paste, without a build
+
+Copy the whole `src/` folder (`index.html`, `robots.txt`, `css/`) as it is and open `index.html`. No build step is needed.
+
+- Copy the whole folder: the CSS is split across several files linked together.
+- Browsers without native `@layer` (Chrome before 99, Firefox before 97, Safari before 15.4) ignore the layered styles, so the page shows without styling. If you need those browsers, use `npm run build` instead.
+
 ## Usage
 
 Open `src/index.html` directly, or serve the folder. In development, `src/css/styles.css` is loaded as-is and the browser handles `@layer`.
