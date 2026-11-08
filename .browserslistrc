@@ -1,11 +1,11 @@
-# https://github.com/browserslist/browserslist#readme
+# Browsers that we support
+# https://browsersl.ist/
+#
+# Floor: browsers still in use, plus the current Firefox ESR (old Macs, long-term installs).
+# Opera Mini and KaiOS are excluded: they lack @layer, so they made postcss-preset-env
+# apply the cascade layers polyfill (inflated selectors, no native layers in the output).
 
->= 0.5%
-last 2 major versions
-not dead
-Chrome >= 60
-Firefox >= 60
+> 0.2% and not dead
 Firefox ESR
-iOS >= 12
-Safari >= 12
-not Explorer <= 11
+not op_mini all
+not kaios <= 3.1
