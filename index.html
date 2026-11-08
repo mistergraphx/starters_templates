@@ -50,6 +50,11 @@
   -->
 </head>
 <body>
+  <!-- Skip link: hidden until focused, first focusable element of the page
+  @see https://webaim.org/techniques/skipnav/
+  -->
+  <a href="#main" class="visually-hidden-focusable">Aller au contenu principal</a>
+
   <!-- Accessibility Guidelines
 
   @see - https://webaim.org/
@@ -110,7 +115,7 @@
     </form>
   </header>
 
-  <main role="main">
+  <main id="main" role="main" tabindex="-1">
     <!-- Basic styleguide with all html tags used in user contents (markdown, CMS editors)
     @see - https://www.bryanbraun.com/poor-mans-styleguide/
     -->
