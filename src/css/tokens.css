@@ -1,5 +1,9 @@
 /* Tokens: the settings of the starter, declared before any element rule.
 
+   Naming: category first, then role, kebab-case (--color-text, --font-size-base).
+   Same shape as the token paths of a DTCG file, so the names can be generated later.
+   @see - https://www.designtokens.org/TR/third-editors-draft/format/
+
    Custom properties naming conventions
    @see - https://open-props.style/
 
@@ -28,26 +32,25 @@
   color-scheme: light dark;
 
   /* Fonts */
-  --font-system-ui: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  --font-family-system: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  --font-family-base: var(--font-family-system);
+  --font-size-root: 62.5%;
+  --font-size-base: 1.6rem;
 
   /* Sizes and rhythm */
-  --global-font-size: 62.5%;
-  --global-box-sizing: border-box;
-  --global-line-height: 1.5;
+  --box-sizing: border-box;
+  --line-height-base: 1.5;
 
-  /* Base / body */
-  --base-font-family: var(--font-system-ui);
-  --base-font-size: 1.6rem;
-  --base-line-height: var(--global-line-height);
-  --base-background: #f5f5f5;
-  --base-color: #333;
-  --base-selection-bg: yellow;
+  /* Colours */
+  --color-background: #f5f5f5;
+  --color-text: #333;
+  --color-selection: yellow;
 }
 
 /* prefer-color-sheme: dark */
 @media screen and (prefers-color-scheme: dark){
   :root{
-    --base-background: #333;
-    --base-color: #f5f5f5;
+    --color-background: #333;
+    --color-text: #f5f5f5;
   }
 }
