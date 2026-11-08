@@ -35,6 +35,7 @@ Others reset or starters:
   /* Base / body */
   --base-font-family: var(--font-system-ui);
 	--base-font-size: 1rem;
+  --base-line-height: var(--global-line-height);
   --base-background: #f5f5f5;
   --base-color: #333;
   --base-selection-bg: yellow;
@@ -66,7 +67,7 @@ time, mark, audio, video {
 
 /**
   1. Set the font size to base of 10. 1.6rem = 16px. No more math needed.
-  2. Set Box sizing default to border-box
+  2. Box sizing: set on every element below, not inherited from html
 
   3. Set line height to  `--global-line-height` which works nicely with most font sizes
   4. Prevent adjustments of font size in mobile browsers (safari/ff) after orientation changes in iOS (https://kilianvalkhof.com/2022/css-html/your-css-reset-needs-text-size-adjust-probably/).
@@ -74,7 +75,6 @@ time, mark, audio, video {
 */
 html{
   font-size: var(--global-font-size); /* 1 */
-  box-sizing: var(--global-box-sizing); /* 2 */
   line-height: var(--global-line-height); /* 3 */
 
   hanging-punctuation: first allow-end last; /* Only Safari */
@@ -91,8 +91,8 @@ html{
 inherited, due to the cascade and imbrication of components
 https://www.oddbird.net/2025/09/04/box-model/
 */
-*, *:before, *:after {
-  box-sizing: inherit;
+*, *::before, *::after {
+  box-sizing: var(--global-box-sizing); /* 2 */
 }
 
 body {
@@ -189,15 +189,12 @@ samp {
   font-family: monospace, monospace; /* Correct the inheritance and scaling of font size in all browsers. */
   font-size: 1em; /* Correct the odd `em` font sizing in all browsers. */
 }
-code,
+/* Only pre is a block: inline code must stay inline in paragraphs */
 pre {
   /* background: #333; */
   padding: 5px;
   display: block;
   white-space: pre-wrap;
-}
-
-pre {
   margin-top: 0;
   margin-bottom: 1rem;
   overflow: auto;
@@ -327,13 +324,13 @@ video {
   vertical-align: middle;
 }
 
+/* Shrink the figure to its content, so the caption wraps to the image width
+(replaces the older `display: table` trick; caption-side only applies to table captions) */
 figure {
-  display: table;
+  width: fit-content;
 }
 
 figcaption {
-	caption-side: bottom;
-
 	font-style: italic;
 	text-align: center;
 }
