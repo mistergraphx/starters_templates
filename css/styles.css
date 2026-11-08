@@ -1,15 +1,13 @@
 /* Explicit layer order: later layers win, whatever the @import order.
    base: reset and browser defaults
    tokens: colour scheme and theme overrides
-   layout: page structure (header, main, nav, sections, footer)
    components: reserved for reusable blocks, empty in this starter
    utilities: single-purpose helpers, last so they always apply
 
    Source files are imported as-is in development. `npm run build:css` inlines them
    and transforms the layers for older browsers (see postcss.config.js). */
-@layer base, tokens, layout, components, utilities;
+@layer base, tokens, components, utilities;
 
 @import "base.css" layer(base);
 @import "tokens.css" layer(tokens);
-@import "layout.css" layer(layout);
 @import "utilities.css" layer(utilities);

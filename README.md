@@ -8,7 +8,6 @@ A collection of simple starter templates.
 - `css/styles.css` : entry point. It declares the layer order and imports the other files.
   - `css/base.css` : reset and browser defaults (`base` layer).
   - `css/tokens.css` : colour scheme and theme overrides (`tokens` layer).
-  - `css/layout.css` : page structure (`layout` layer).
   - `css/utilities.css` : single-purpose helpers (`utilities` layer, last).
 - `postcss.config.js` : production pipeline (inline imports, cascade layers fallback, minification).
 
