@@ -11,9 +11,16 @@ A collection of simple starter templates.
     - `src/css/base.css` : reset and browser defaults (`base` layer).
     - `src/css/tokens.css` : colour scheme and theme overrides (`tokens` layer).
     - `src/css/layout.css` : structure only, no colours or borders (`layout` layer).
+    - `src/css/components/` : one file per block, named after the block (`button.css`, …) (`components` layer).
     - `src/css/utilities.css` : single-purpose helpers (`utilities` layer, last).
     - `src/css/print.css` : print stylesheet, loaded separately with `media="print"` so it does not weigh on the main sheet.
 - `postcss.config.js` : production pipeline (inline imports, cascade layers fallback, minification).
+
+## Conventions
+
+- `base` holds element rules only. Every value you may want to change lives in `tokens.css`.
+- `components/`: one file per block, named after it. Modifiers and elements of the block stay in the same file. No catch-all files.
+- Keep the order of the `@layer` list in `styles.css`. Later layers win.
 
 ## Deployment
 

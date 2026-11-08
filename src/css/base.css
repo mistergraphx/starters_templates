@@ -10,37 +10,6 @@ Others reset or starters:
 @see - https://elad2412.github.io/the-new-css-reset/
 
 */
-:root{
-  /* Custom properties naming conventions
-  @see - https://open-props.style/
-
-  System colors and CSS keywords
-  @see -  https://projects.dutchcelt.com/system.css/index.html
-  */
-  /* Fonts and fallbacks
-
-  @see - https://css-tricks.com/snippets/css/system-font-stack/
-  @see - https://modernfontstacks.com/  : System font stack CSS organized by typeface classification for every modern operating system
-   */
-  --font-system-ui: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-  /* User font-size can be scale up to 200% in the aria criterias
-  sizing the font tho 62.5% is useful to simply convert px to rem
-  but can break this accessibility rule.
-  @see - https://www.w3.org/WAI/WCAG22/Understanding/resize-text
-  @see - https://www.oddbird.net/2025/07/22/size-preferences/
-  */
-  --global-font-size: 62.5%;
-  --global-box-sizing: border-box;
-  --global-line-height: 1.5 ;
-  /* Base / body */
-  --base-font-family: var(--font-system-ui);
-	--base-font-size: 1rem;
-  --base-line-height: var(--global-line-height);
-  --base-background: #f5f5f5;
-  --base-color: #333;
-  --base-selection-bg: yellow;
-}
-
 /* Minimal Reset
 @see - https://meyerweb.com/eric/tools/css/reset/
 */

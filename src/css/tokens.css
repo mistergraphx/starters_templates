@@ -1,23 +1,47 @@
-/* Theme tokens
+/* Tokens: the settings of the starter, declared before any element rule.
 
-ClassLess css projects inspirations
-@see - https://picocss.com/
-@see - https://watercss.kognise.dev/
-@see - https://simplecss.org/
+   Custom properties naming conventions
+   @see - https://open-props.style/
 
-Design theories or need inspirations
-@see - https://brutalist-web.design/
-@see - https://csszengarden.com/
+   System colors and CSS keywords
+   @see - https://projects.dutchcelt.com/system.css/index.html
+
+   Fonts and fallbacks
+   @see - https://css-tricks.com/snippets/css/system-font-stack/
+   @see - https://modernfontstacks.com/  : System font stack CSS organized by typeface classification for every modern operating system
+
+   User font-size can be scale up to 200% in the aria criterias
+   sizing the font tho 62.5% is useful to simply convert px to rem
+   but can break this accessibility rule.
+   @see - https://www.w3.org/WAI/WCAG22/Understanding/resize-text
+   @see - https://www.oddbird.net/2025/07/22/size-preferences/
+
+   Theme and design inspirations
+   @see - https://picocss.com/
+   @see - https://watercss.kognise.dev/
+   @see - https://simplecss.org/
+   @see - https://brutalist-web.design/
+   @see - https://csszengarden.com/
 */
 :root{
   /* Describe available scheme */
   color-scheme: light dark;
-  /* Overides */
+
+  /* Fonts */
+  --font-system-ui: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+
+  /* Sizes and rhythm */
+  --global-font-size: 62.5%;
+  --global-box-sizing: border-box;
+  --global-line-height: 1.5;
+
+  /* Base / body */
   --base-font-family: var(--font-system-ui);
   --base-font-size: 1.6rem;
-  --base-line-height: 1.5;
+  --base-line-height: var(--global-line-height);
   --base-background: #f5f5f5;
   --base-color: #333;
+  --base-selection-bg: yellow;
 }
 
 /* prefer-color-sheme: dark */
