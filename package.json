@@ -5,6 +5,9 @@
   "author": "Arnaud B.",
   "license": "ISC",
   "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
   "scripts": {
     "build:css": "NODE_ENV=production postcss src/css/styles.css src/css/print.css -d dist/css",
     "build": "npm run build:css && cp src/index.html src/robots.txt dist/"
