@@ -19,11 +19,13 @@ A collection of simple starter templates.
 
 Open `src/index.html` directly, or serve the folder. In development, `src/css/styles.css` is loaded as-is and the browser handles `@layer`.
 
-For production:
+For a static demo, build and serve the `dist/` folder:
 
 ```bash
 npm install
-npm run build:css   # writes dist/styles.css and dist/print.css (minified in production)
+npm run build       # writes dist/index.html, dist/robots.txt and dist/css/ (minified CSS)
 ```
+
+`dist/` mirrors `src/`: the HTML links to `css/styles.css` in both, so the same paths work in development and after the build.
 
 The build transforms `@layer` only if a browser listed in `.browserslistrc` does not support cascade layers natively.

@@ -6,7 +6,8 @@
   "license": "ISC",
   "type": "module",
   "scripts": {
-    "build:css": "NODE_ENV=production postcss src/css/styles.css src/css/print.css -d dist"
+    "build:css": "NODE_ENV=production postcss src/css/styles.css src/css/print.css -d dist/css",
+    "build": "npm run build:css && cp src/index.html src/robots.txt dist/"
   },
   "devDependencies": {
     "postcss": "^8.5.32",
