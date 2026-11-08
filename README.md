@@ -10,6 +10,7 @@ A collection of simple starter templates.
   - `css/tokens.css` : colour scheme and theme overrides (`tokens` layer).
   - `css/layout.css` : structure only, no colours or borders (`layout` layer).
   - `css/utilities.css` : single-purpose helpers (`utilities` layer, last).
+- `css/print.css` : print stylesheet, loaded separately with `media="print"` so it does not weigh on the main sheet.
 - `postcss.config.js` : production pipeline (inline imports, cascade layers fallback, minification).
 
 ## Usage
@@ -20,7 +21,7 @@ For production:
 
 ```bash
 npm install
-npm run build:css   # writes dist/styles.css
+npm run build:css   # writes dist/styles.css and dist/print.css
 ```
 
 The build transforms `@layer` for browsers listed in `.browserslistrc`. Those browsers do not support cascade layers natively.

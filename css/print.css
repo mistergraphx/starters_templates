@@ -1,0 +1,33 @@
+/* Print stylesheet, loaded separately with media="print" so it never blocks rendering.
+   Wrapped in the utilities layer: the layer order is set by styles.css. */
+@layer utilities {
+  @media print {
+    @page {
+      margin: 15mm;
+    }
+    body {
+      background: #fff;
+      color: #000;
+      font-size: 11pt;
+    }
+    /* Navigation, skip link and forms are useless on paper */
+    nav,
+    form,
+    .visually-hidden-focusable {
+      display: none !important;
+    }
+    a[href^="http"]::after {
+      content: " (" attr(href) ")";
+      font-size: 0.8em;
+      word-break: break-all;
+    }
+    h1, h2, h3, h4 {
+      break-after: avoid;
+    }
+    section,
+    figure,
+    table {
+      break-inside: avoid;
+    }
+  }
+}
